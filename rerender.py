@@ -24,8 +24,8 @@ def get_demo_states_and_env_metadata(demo_file) -> Tuple[dict, ndarray]:
     
     return env_metadata, states
 
-def get_bddl_path(demo_file: Path, bddl_files_path: str = None) -> Path:
-    bddl_files_path = Path(get_libero_path("bddl_files"))
+def get_bddl_path(demo_file: Path, bddl_files_path: Union[str, Path] = None) -> Path:
+    bddl_files_path = Path(bddl_files_path) if bddl_files_path else Path(get_libero_path("bddl_files"))
     bddl_path = bddl_files_path / demo_file.parent.stem / (demo_file.stem[:-5] + '.bddl')
     return bddl_path
 
