@@ -73,7 +73,7 @@ def verticalFlip(img: ndarray) -> ndarray:
 def get_args() -> Tuple[str, Path]:
     import argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument("--datasets_path", type=str)
+    parser.add_argument("--datasets_path", type=str, default=get_libero_path('datasets'))
     parser.add_argument("--dataset_name", type=str, default="libero_spatial")
     args = parser.parse_args()
     dataset_name, datasets_path = args.dataset_name, Path(args.datasets_path)
