@@ -27,4 +27,12 @@ def main(datasets_path: str, dataset_name: str):
 
 if __name__ == '__main__':
     datasets_path, dataset_name = get_args()
-    main(datasets_path, dataset_name)
+    if dataset_name == 'all':
+        benchmark_names = list([path for path in Path(datasets_path).iterdir() if path.is_dir()])
+        n_benchmarks = len(benchmark_names)
+
+        for i, benchmark_name in enumerate(benchmark_names):
+            print(f"{i+1}/{n_benchmarks} Rerendering {benchmark_name.stem} benchmark")
+            main(datasets_path, benchmark_name)
+    else:
+        main(datasets_path, dataset_name)
