@@ -1,4 +1,4 @@
-from rerender import *
+from libero.libero.rerender import *
 from tqdm.auto import tqdm
 import h5py
 

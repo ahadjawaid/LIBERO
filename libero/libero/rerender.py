@@ -1,6 +1,6 @@
 from pointcloud import get_rgbd_image, get_point_cloud, get_colored_point_cloud
 from robosuite.utils.camera_utils import get_camera_intrinsic_matrix
-from libero.libero import benchmark, get_libero_path
+from libero.libero import get_libero_path
 from libero.libero.envs import OffScreenRenderEnv
 import robosuite.utils.transform_utils as T
 from visualizer import Visualizer
@@ -119,6 +119,3 @@ if __name__ == '__main__':
     camera_height, camera_width = env_kwargs['camera_heights'], env_kwargs['camera_widths']
     point_cloud = get_point_cloud(rgbd_image, camera_intrinsic, camera_height, camera_width)
     colored_points = get_colored_point_cloud(point_cloud, rgb_image)
-
-    vis = Visualizer()
-    vis.visualize_pointcloud(colored_points)
